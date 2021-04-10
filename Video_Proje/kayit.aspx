@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
   <meta charset="UTF-8">
-	<title>İSTİHDAMA YÖNELİK ÜCRETSİZ MESLEK EDİNDİRME EĞİTİMLERİ</title>
+	<title>BİLECİK ŞEYH EDEBALİ ÜNİVERSİTESİ</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,300italic,400italic,600italic" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="assets/styles/main.css">
@@ -632,7 +632,7 @@
 																</div>
 																<div class="col-md-12 col-xs-12"><br />
 																	<div class="contact_form--submit">
-                                                                        <asp:CompareValidator ID="CompareValidator1" runat="server" BorderColor="#383D61" ControlToCompare="sfrttxt" ControlToValidate="sfrtxt" ErrorMessage="Şifreler aynı değil. Lütfen kontrol ediniz." ForeColor="#DD482A"></asp:CompareValidator>
+                                                                        <asp:CompareValidator ID="CompareValidator1" runat="server" BorderColor="#383D61" ControlToCompare="sfrtxt" ControlToValidate="sfrttxt" ErrorMessage="Şifreler aynı değil. Lütfen kontrol ediniz." ForeColor="#DD482A"></asp:CompareValidator>
                                                                         <asp:Button ID="Button1" runat="server" Text="Kaydet" CssClass="button -menu_size -waikawa_gray -bordered" OnClick="Button1_Click" />
 																		<%--<button class="button -menu_size -waikawa_gray -bordered" type="submit">Kaydet</button>    --%> 
                                                                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Geçerli bir Kimlik Numarası giriniz" ControlToValidate="tctxt" ValidationExpression="^[1-9]{1}[0-9]{9}[0,2,4,6,8]{1}$" BorderColor="#383D61" ForeColor="#DD482A"></asp:RegularExpressionValidator>                                                        

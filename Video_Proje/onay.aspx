@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta charset="UTF-8">
-	<title>BUTGEM KURS ÖN KAYIT FORMU</title>
+	<title>BİLECİK ŞEYH EDEBALİ ÜNİVERSİTESİ</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,300italic,400italic,600italic" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="assets/styles/main.css">
@@ -17,7 +17,7 @@
 							<div class="row">
 								<div class="col-lg-2 col-md-12">
 									<div class="header--logo logo">
-										<a href="onkayitbutgem.aspx"><img src="assets/images/design/butgemlogo.png" alt="" style="width:150px;" /></a>
+										<a href="onkayitbutgem.aspx"><img src="img/logo.png" alt="" style="width:150px;" /></a>
 									</div>
 								</div>
 								<div class="col-lg-10 col-md-12 visible-md-block visible-lg-block">
@@ -27,7 +27,7 @@
 												<div class="contact_mini">
 													<i style="color:#7c6aa6" class="contact_mini--icon icons8-phone"></i>
 													<p class="contact_item--text">
-																<strong>0 (224) 261 12 11 </strong>
+																<strong>0228 214 11 11 </strong>
 																<br> 
 															</p>
 												</div>
@@ -36,14 +36,14 @@
 												<div class="contact_mini">
 													<h3 class="contact_item--title">Bize Yazın</h3>
 															<p class="contact_item--text">
-																<a href="mailto:butgem@butgem.org.tr">butgem@butgem.org.tr</a
+																<a href="mailto:mf@bilecik.edu.trr">mf@bilecik.edu.tr</a
 															</p>
 												</div>
 											</div>
 											<div class="header_contacts--item">
 												<div class="contact_mini">
 													<i style="color:#7c6aa6" class="contact_mini--icon icons8-geo-fence"></i>
-													<p class="contact_card--text"> <br> <strong>Demirtaş OSB Osmangazi/BURSA</strong> <br> </p>
+													<p class="contact_card--text"> <br> <strong>Gülümbe/BİLECİK</strong> <br> </p>
 															</p>
 												</div>
 											</div>

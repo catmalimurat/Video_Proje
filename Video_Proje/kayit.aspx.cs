@@ -20,7 +20,7 @@ public partial class bireysel : System.Web.UI.Page
             {
 
 
-                Response.Redirect("onay.aspx?adtxt=" + adtxt.Text + "&soyadtxt=" + soyadtxt.Text + "&emailtxt=" + emailtxt.Text + "&tctxt=" + tctxt.Text + "&bolum=" + DropDownList2.SelectedValue + "&sinif=" + DropDownList3.SelectedValue + "&sfr="+sfrtxt.Text);
+                Response.Redirect("onay.aspx?adtxt=" + adtxt.Text + "&soyadtxt=" + soyadtxt.Text + "&emailtxt=" + emailtxt.Text + "&tctxt=" + tctxt.Text + "&bolum=" + DropDownList2.SelectedItem.Text + "&sinif=" + DropDownList3.SelectedItem.Text + "&sfr="+sfrtxt.Text);
                         //Response.Redirect("kayit.aspx?adtxt="+ adtxt.Text+"&emailtxt="+emailtxt.Text+"&teltxt="+teltxt.Text+"&cinsiyet="+cinsiyet+"&kurs="+DropDownList3.SelectedValue + "&onay="+onayli+"&isdurumu="+isdurumu+"&sehir="+ DropDownList1.SelectedValue+"&ozeltxt="+ozeltxt.Text);                          
 
 
