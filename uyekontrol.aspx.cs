@@ -16,6 +16,7 @@ public partial class uyekontrol : System.Web.UI.Page
         OgrenciCrud ogrencicrud = new OgrenciCrud();
         if(ogrencicrud.uyemi(tc,sfr))
         {
+            Session["uye"] = tc;
             Response.Redirect("ogrenci_dersleri.aspx");
         }
         else
