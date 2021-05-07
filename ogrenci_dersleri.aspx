@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ogreci_dersleri.aspx.cs" Inherits="ogreci_dersleri" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ogrenci_dersleri.aspx.cs" Inherits="ogreci_dersleri" %>
 
 <!DOCTYPE html>
 

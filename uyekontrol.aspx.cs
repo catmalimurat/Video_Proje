@@ -11,6 +11,17 @@ public partial class uyekontrol : System.Web.UI.Page
     {
         string tc = Request.QueryString["tctxt"];
         string sfr = Request.QueryString["sfr"];
-
+        DbCrud dbcrud = new DbCrud();
+        
+        OgrenciCrud ogrencicrud = new OgrenciCrud();
+        if(ogrencicrud.uyemi(tc,sfr))
+        {
+            Response.Redirect("ogrenci_dersleri.aspx");
+        }
+        else
+        {
+            Response.Redirect("uyegiris.aspx?hata=1");
+           
+        }
     }
 }

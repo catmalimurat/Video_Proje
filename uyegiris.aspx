@@ -580,6 +580,8 @@
 																<div class="col-md-12 col-xs-12"><br />
 																	<div class="contact_form--submit">
                                                                         
+                                                                        <asp:Label ID="Label1" runat="server" ForeColor="#FF3300"></asp:Label>
+                                                                        
                                                                         <asp:Button ID="Button1" runat="server" Text="Giriş" CssClass="button -menu_size -waikawa_gray -bordered" OnClick="Button1_Click" />
 																		<%--<button class="button -menu_size -waikawa_gray -bordered" type="submit">Kaydet</button>    --%> 
                                                                                                                           

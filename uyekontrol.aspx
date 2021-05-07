@@ -4,12 +4,14 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+   <link href="assets/css/toastr.min.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-        </div>
+            <script src="assets/scripts/moment.min.js"></script>
+<script src="assets/scripts/jquery-3.2.1.min.js"></script>
+<script src="assets/scripts/toastr.js"></script>
+      
     </form>
 </body>
 </html>
