@@ -22,21 +22,20 @@ public partial class kayit : System.Web.UI.Page
 
         string tarih = System.DateTime.Now.ToShortTimeString();
         DbCrud dbcrud = new DbCrud();
-        dbcrud.baglanti.Open();
-     
-        
-        SqlCommand komut = new SqlCommand("INSERT INTO TblOgrenciler (O_Tc_Kimlik,O_Ad,O_Soyad,O_Sifre,[O_E-mail],O_Bolum,O_Sinif) values (@p1,@p2,@p3,@p4,@p5,@p6,@p7)", dbcrud.baglanti);
-        komut.Parameters.AddWithValue("@p1", tc);
-        komut.Parameters.AddWithValue("@p2", ad);
-        komut.Parameters.AddWithValue("@p3", soyad);
-        komut.Parameters.AddWithValue("@p4", sfr);
-        komut.Parameters.AddWithValue("@p5", email);
-        komut.Parameters.AddWithValue("@p6", bolum);
-        komut.Parameters.AddWithValue("@p7", sinif);
-        komut.ExecuteNonQuery();
-        dbcrud.baglanti.Close();
+        Ogrenci ogrenci = new Ogrenci();
+        OgrenciCrud ogrencicrud = new OgrenciCrud();
+
+        ogrenci.Ad = ad;
+        ogrenci.Soyad = soyad;
+        ogrenci.Email = email;
+        ogrenci.Tc = tc;
+        ogrenci.Sfr = sfr;
+        ogrenci.Bolum = bolum;
+        ogrenci.Sinif = sinif;
+        if(ogrencicrud.OgrenciKayit(ogrenci))
+        { sonuc.InnerHtml = "Uzaktan Eğitim Sistemine Kaydınız Yapılmıştır.";}
        
-        sonuc.InnerHtml = "Uzaktan Eğitim Sistemine Kaydınız Yapılmıştır.";
+        
 
     
 		 
