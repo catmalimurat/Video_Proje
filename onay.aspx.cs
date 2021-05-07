@@ -18,12 +18,12 @@ public partial class kayit : System.Web.UI.Page
         string sfr = Request.QueryString["sfr"];
         string bolum = Request.QueryString["bolum"];
         string sinif = Request.QueryString["sinif"];
-        
-        
+             
 
         string tarih = System.DateTime.Now.ToShortTimeString();
-        DbCRUD dbcrud = new DbCRUD();
+        DbCrud dbcrud = new DbCrud();
         dbcrud.baglanti.Open();
+     
         
         SqlCommand komut = new SqlCommand("INSERT INTO TblOgrenciler (O_Tc_Kimlik,O_Ad,O_Soyad,O_Sifre,[O_E-mail],O_Bolum,O_Sinif) values (@p1,@p2,@p3,@p4,@p5,@p6,@p7)", dbcrud.baglanti);
         komut.Parameters.AddWithValue("@p1", tc);
@@ -41,4 +41,8 @@ public partial class kayit : System.Web.UI.Page
     
 		 
 	}
+}
+
+public class DbCRUD
+{
 }
