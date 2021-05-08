@@ -17,6 +17,7 @@ public partial class ogreci_dersleri : System.Web.UI.Page
 
         DersCrud derscrud = new DersCrud();
         DataTable derstablo=derscrud.dersler(Session["uye"].ToString());
-
+        GridView1.DataSource = derstablo;
+        GridView1.DataBind();
     }
 }

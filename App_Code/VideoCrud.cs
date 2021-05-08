@@ -6,24 +6,25 @@ using System.Linq;
 using System.Web;
 
 /// <summary>
-/// Summary description for DersCrud
+/// Summary description for VideoCrud
 /// </summary>
-public class DersCrud
+public class VideoCrud
 {
     DbCrud dbcrud = new DbCrud();
-    public DersCrud()
+    public VideoCrud()
     {
         //
         // TODO: Add constructor logic here
         //
     }
-    public DataTable dersler(string tc)
+
+    public DataTable videolar(string ders)
     {
         dbcrud.baglanti.Open();
-        
-        SqlCommand komut = new SqlCommand("SELECT * FROM TblOgrenci_Dersleri  inner join TblDersler on TblDersler.D_Kodu=TblOgrenci_Dersleri.D_Kodu WHERE O_Tc_Kimlik=@p1", dbcrud.baglanti);
-        komut.Parameters.AddWithValue("@p1", tc);
-        
+
+        SqlCommand komut = new SqlCommand("SELECT * FROM TblDers_Video WHERE D_kodu=@p1", dbcrud.baglanti);
+        komut.Parameters.AddWithValue("@p1", ders);
+
         DataTable dt = new DataTable();
         dt.Load(komut.ExecuteReader());
         dbcrud.baglanti.Close();

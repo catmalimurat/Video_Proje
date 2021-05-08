@@ -533,74 +533,30 @@
 						<div class="section--header">						
 								<form id="bk" runat="server" method="POST">
                                     <div class="col-md-9 col-md-offset-0 col-xs-10 col-xs-offset-1">
-										<h3 class="careers--subtitle">Dersler</h3>
+										<h3 class="careers--subtitle">Dersler<asp:GridView ID="GridView1" runat="server">
+                                            </asp:GridView>
+                                        </h3>
 										<div class="careers--vacancies">
 											<div class="vacancies js-accordion">
                                                 <% @Import Namespace = "System.Data"%>
                                                         <% @Import Namespace="System.Data.SqlClient"%>
                                                             <%
-                                                    DersCrud derscrud = new DersCrud();
-                                                    DataTable derstablo=derscrud.dersler(Session["uye"].ToString()); %>
+                                                                DersCrud derscrud = new DersCrud();
+                                                                VideoCrud videocrud = new VideoCrud();
+                                                                DataTable derstablo=derscrud.dersler(Session["uye"].ToString()); %>
                                                 <%for (int i = 0; i < derstablo.Rows.Count; i++)
                                                     {%>
                                                         <div class="vacancies--item js-accordion--pane">
-													<h4 class="vacancies--item_title js-accordion--pane_opener">Senior Finance Consultant</h4>
+													<h4 class="vacancies--item_title js-accordion--pane_opener"><%=derstablo.Rows[i]["D_adi"] %></h4>
 													<div class="vacancies--item_content js-accordion--pane_content">
-														<h5>Job Description</h5>
-														<p>
-															Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sagittis venenatis massa eu tempus. Integer eu enim diam. In vitae vulputate metus, ac dapibus turpis. Vivamus consequat mauris aliquet tellus feugiat accumsan. Nam tincidunt dolor vel auctor
-															imperdiet. Duis egestas ut ante eget fermentum. Donec eget elit eget urna mattis sagittis eu eget dui. Phasellus quis tortor nec nisi rhoncus condimentum tempor eu leo. Suspendisse at cursus risus.
-														</p>
-														<p>
-															Integer eleifend quis nunc a lobortis. Sed non nibh quis enim varius semper eget vitae lectus. Ut nibh sem, laoreet ac mauris eu, auctor semper diam. Duis nec laoreet est. Duis eget scelerisque magna. Etiam id ligula id libero semper tempus. Sed vestibulum
-															urna a eleifend ultrices. Integer blandit vehicula consequat. Fusce ac bibendum ex. Fusce eget neque magna. Cras facilisis, odio at tincidunt accumsan, ex nibh commodo est, non posuere mauris elit a orci. Praesent a nisl et diam aliquet
-															lacinia. Aliquam risus sem, accumsan at magna sed, laoreet accumsan est. Aliquam tincidunt rhoncus eros, a ornare massa mollis ac. Ut ut augue id ante malesuad efficitur et at ligula. Nulla rutrum hendrerit aliquet.
-														</p>
-														<p>
-															Nullam odio nulla, scelerisque venenatis cursus in, pretium sit amet nibh. Donec nec diam sit amet erat fermentum molestie non viverra lacus. Etiam eu leo vel risus interdum efficitur. Donec tristique elementum nulla, non tristique nisi varius ut. Sed
-															et elit viverra, accumsan arcu eget, posuere enim. Integer eleifend quis nunc a lobortis. Sed non nibh quis enim varius semper eget vitae lectus. Ut nibh sem, laoreet ac mauris eu, auctor semper diam. Duis nec laoreet est. Duis eget scelerisque
-															magna. Etiam id ligula id libero semper tempus
-														</p>
-														<h5>Requirements</h5>
-														<ul>
-															<li>Lacus ornare id. In porttitor nec mi eget posuere.</li>
-															<li>Vestibulum fringilla hendrerit sapien vitae elementum.</li>
-															<li>Nunc vehicula velit quis accumsan pharetra.</li>
-														</ul>
-														<h5>Please, send your CV to <a href="mailto:careers@seocompany.com">careers@seocompany.com</a></h5>
+														<h5><%=derstablo.Rows[i]["D_Kodu"] %></h5>
+														<%DataTable videotablo = videocrud.videolar(derstablo.Rows[i]["D_Kodu"].ToString()); %>
+
 													</div>
 												</div>
                                                    <% } %>
 												
-												<div class="vacancies--item js-accordion--pane">
-													<h4 class="vacancies--item_title js-accordion--pane_opener">Junior PR-manager</h4>
-													<div class="vacancies--item_content js-accordion--pane_content">
-														<h5>Job Description</h5>
-														<p>
-															Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sagittis venenatis massa eu tempus. Integer eu enim diam. In vitae vulputate metus, ac dapibus turpis. Vivamus consequat mauris aliquet tellus feugiat accumsan. Nam tincidunt dolor vel auctor
-															imperdiet. Duis egestas ut ante eget fermentum. Donec eget elit eget urna mattis sagittis eu eget dui. Phasellus quis tortor nec nisi rhoncus condimentum tempor eu leo. Suspendisse at cursus risus.
-														</p>
-														<p>
-															Integer eleifend quis nunc a lobortis. Sed non nibh quis enim varius semper eget vitae lectus. Ut nibh sem, laoreet ac mauris eu, auctor semper diam. Duis nec laoreet est. Duis eget scelerisque magna. Etiam id ligula id libero semper tempus. Sed vestibulum
-															urna a eleifend ultrices. Integer blandit vehicula consequat. Fusce ac bibendum ex. Fusce eget neque magna. Cras facilisis, odio at tincidunt accumsan, ex nibh commodo est, non posuere mauris elit a orci. Praesent a nisl et diam aliquet
-															lacinia. Aliquam risus sem, accumsan at magna sed, laoreet accumsan est. Aliquam tincidunt rhoncus eros, a ornare massa mollis ac. Ut ut augue id ante malesuad efficitur et at ligula. Nulla rutrum hendrerit aliquet.
-														</p>
-														<p>
-															Nullam odio nulla, scelerisque venenatis cursus in, pretium sit amet nibh. Donec nec diam sit amet erat fermentum molestie non viverra lacus. Etiam eu leo vel risus interdum efficitur. Donec tristique elementum nulla, non tristique nisi varius ut. Sed
-															et elit viverra, accumsan arcu eget, posuere enim. Integer eleifend quis nunc a lobortis. Sed non nibh quis enim varius semper eget vitae lectus. Ut nibh sem, laoreet ac mauris eu, auctor semper diam. Duis nec laoreet est. Duis eget scelerisque
-															magna. Etiam id ligula id libero semper tempus
-														</p>
-														<h5>Requirements</h5>
-														<ul>
-															<li>Lacus ornare id. In porttitor nec mi eget posuere.</li>
-															<li>Vestibulum fringilla hendrerit sapien vitae elementum.</li>
-															<li>Nunc vehicula velit quis accumsan pharetra.</li>
-															<li>Vestibulum fringilla hendrerit sapien vitae elementum.</li>
-															<li>Nunc vehicula velit quis accumsan pharetra.</li>
-														</ul>
-														<h5>Please, send your CV to <a href="mailto:careers@seocompany.com">careers@seocompany.com</a></h5>
-													</div>
-												</div>
+												
 												
 												
 												

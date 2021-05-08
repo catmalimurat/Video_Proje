@@ -9,7 +9,7 @@ using System.Web;
 /// </summary>
 public class DbCrud
 {
-    public SqlConnection baglanti = new SqlConnection("Data Source=DESKTOP-4SN9S8I;Initial Catalog=UzaktanEgitimDb;Integrated Security=True");
+    public SqlConnection baglanti = new SqlConnection("Data Source=DESKTOP-4SN9S8I;Initial Catalog=ProjeDb;Integrated Security=True");
     public DbCrud()
     {
         //
