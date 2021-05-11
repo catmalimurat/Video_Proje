@@ -11,18 +11,12 @@ using System.Web;
 public class VideoCrud
 {
     DbCrud dbcrud = new DbCrud();
-    public VideoCrud()
-    {
-        //
-        // TODO: Add constructor logic here
-        //
-    }
-
+    
     public DataTable videolar(string ders)
     {
         dbcrud.baglanti.Open();
 
-        SqlCommand komut = new SqlCommand("SELECT * FROM TblDers_Video WHERE D_kodu=@p1", dbcrud.baglanti);
+                SqlCommand komut = new SqlCommand("SELECT * FROM TblDers_Video inner join TblVideolar on TblDers_Video.D_VideoKod=TblVideolar.VideoKod WHERE D_kodu=@p1", dbcrud.baglanti);
         komut.Parameters.AddWithValue("@p1", ders);
 
         DataTable dt = new DataTable();

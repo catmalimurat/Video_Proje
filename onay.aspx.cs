@@ -25,17 +25,18 @@ public partial class kayit : System.Web.UI.Page
         Ogrenci ogrenci = new Ogrenci();
         OgrenciCrud ogrencicrud = new OgrenciCrud();
 
-        ogrenci.Ad = ad;
-        ogrenci.Soyad = soyad;
-        ogrenci.Email = email;
-        ogrenci.Tc = tc;
-        ogrenci.Sfr = sfr;
-        ogrenci.Bolum = bolum;
-        ogrenci.Sinif = sinif;
-        if(ogrencicrud.OgrenciKayit(ogrenci)==1)
-        { sonuc.InnerHtml = "Uzaktan Eğitim Sistemine Kaydınız Yapılmıştır.";}
+        ogrenci.ad = ad;
+        ogrenci.soyad = soyad;
+        ogrenci.email = email;
+        ogrenci.tc = tc;
+        ogrenci.sfr = sfr;
+        ogrenci.bolum = bolum;
+        ogrenci.sinif = sinif;
+        /*
+        if (ogrencicrud.OgrenciKayit(ogrenci)==1)
+        sonuc.InnerHtml = "Uzaktan Eğitim Sistemine Kaydınız Yapılmıştır.";
         else
-        { sonuc.InnerHtml = "Uzaktan Eğitim Sistemine Kaydınız Yapılamıştır!!!"; }
+         sonuc.InnerHtml = "Uzaktan Eğitim Sistemine Kaydınız Yapılamıştır!!!"; */
        
         
 

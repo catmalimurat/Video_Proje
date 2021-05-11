@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<!-- 
+  Visual Studio global web project settings.
+-->
+<VisualWebDeveloper>
+
+  <comReferences>
+    <reference Name="interop.wmprichpreviewlauncher" ID="{FA258721-CF24-45D7-A9CB-80047D7FEC35}\1.0\0"/>
+  </comReferences>
+</VisualWebDeveloper>

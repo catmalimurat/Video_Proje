@@ -533,9 +533,10 @@
 						<div class="section--header">						
 								<form id="bk" runat="server" method="POST">
                                     <div class="col-md-9 col-md-offset-0 col-xs-10 col-xs-offset-1">
-										<h3 class="careers--subtitle">Dersler<asp:GridView ID="GridView1" runat="server">
+										<h3 class="careers--subtitle">
+                                            <asp:GridView ID="GridView1" runat="server">
                                             </asp:GridView>
-                                        </h3>
+                                            Dersler</h3>
 										<div class="careers--vacancies">
 											<div class="vacancies js-accordion">
                                                 <% @Import Namespace = "System.Data"%>
@@ -551,6 +552,31 @@
 													<div class="vacancies--item_content js-accordion--pane_content">
 														<h5><%=derstablo.Rows[i]["D_Kodu"] %></h5>
 														<%DataTable videotablo = videocrud.videolar(derstablo.Rows[i]["D_Kodu"].ToString()); %>
+                                                       
+
+
+                                                        <div class="service_sidebar">
+									<div class="widget -iconless">
+										<h2 class="widget--title">Haftalar
+										</h2>
+										<ul class="widget_solutions">
+                                            <%for (int j = 0; j < videotablo.Rows.Count; j++)
+                                                {%>
+
+                                                Dersin Haftası: <%=videotablo.Rows[j]["D_Hafta"] %><bR />
+                                           Video No:<%=videotablo.Rows[j]["VideoKod"] %><bR />
+                                            <li><a href="izle.aspx?vid=<%=videotablo.Rows[j]["D_Video"] %>"><i class="icons8-diamond"></i><span>İzle</span></a></li>
+											
+                                            
+                                            <%} %>
+											
+										</ul>
+									</div>
+                                                            </div>
+
+
+
+
 
 													</div>
 												</div>

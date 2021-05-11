@@ -16,6 +16,5 @@ public class Video
         //
     }
 
-    public string Vkod { get => vkod; set => vkod = value; }
-    public string D_video { get => d_video; set => d_video = value; }
+    
 }
