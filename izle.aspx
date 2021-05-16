@@ -25,9 +25,12 @@
 var vid = document.getElementById("myVideo");
 
 function myFunction() { 
-    alert(vid.ended);
+   
     if (vid.ended) {
         document.getElementById('<%= Button1.ClientID %>').click();
+    }
+    else {
+         alert('Ders videosunun tamamını izlemeden ve ders sonu sorusunu cevaplamadan bir sonraki dersi izleyemezsiniz');
     }
 } 
 </script> 
