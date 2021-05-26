@@ -13,15 +13,15 @@
             <br />
             <asp:Panel ID="Panel1" runat="server">
                 <div>
-                    <asp:RadioButton ID="S1" runat="server" />
+                    <asp:RadioButton ID="S1" runat="server" GroupName="s" />
                     <br />
-                    <asp:RadioButton ID="S2" runat="server" />
+                    <asp:RadioButton ID="S2" runat="server" GroupName="s" />
                     <br />
-                    <asp:RadioButton ID="S3" runat="server" />
+                    <asp:RadioButton ID="S3" runat="server" GroupName="s" />
                     <br />
-                    <asp:RadioButton ID="S4" runat="server" />
+                    <asp:RadioButton ID="S4" runat="server" GroupName="s" />
                 </div>
-                <asp:RadioButton ID="S5" runat="server" />
+                <asp:RadioButton ID="S5" runat="server" GroupName="s" />
                 <br />
                 <asp:Label ID="Label2" runat="server" Text="Label" Visible="False"></asp:Label>
                 <br />
