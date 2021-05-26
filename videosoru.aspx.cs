@@ -8,15 +8,15 @@ using System.Web.UI.WebControls;
 
 public partial class soru : System.Web.UI.Page
 {
-    string vkod;
+    string dkod,vid;
     SoruCRUD q = new SoruCRUD();
     protected void Page_Load(object sender, EventArgs e)
     {
         Panel1.Visible = true;
-        vkod = Request.QueryString["vkod"];
+        dkod = Request.QueryString["vkod"];
         
         SoruCRUD goster = new SoruCRUD();
-        DataTable sorular=goster.sorular(vkod);
+        DataTable sorular=goster.sorular(dkod);
         if (sorular.Rows.Count > 0)
         {
             Label1.Text = sorular.Rows[0][2].ToString();
@@ -29,6 +29,7 @@ public partial class soru : System.Web.UI.Page
         }
         else { Label1.Text = "Derse ait soru yok...";
             Panel1.Visible = false;
+            Response.Write("Dersler sayfasına gitmek için<a href='ogrenci_dersleri.aspx'> tıklayınız</a>");
         }
             
       
@@ -38,6 +39,8 @@ public partial class soru : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
         bool dogru = false;
+        dkod = Request.QueryString["vkod"];
+        vid = Request.QueryString["vid"];
         if ((S1.Checked) && (S1.ID == Label2.Text))
         {
             dogru = true;
@@ -66,7 +69,8 @@ public partial class soru : System.Web.UI.Page
         }
         else
             ysayisi = 1;
-        int sonuc=q.OgrenciVideoIstatistikKaydet(Session["uye"].ToString(), Session["derskod"].ToString(), Session["videokod"].ToString(),dsayisi,ysayisi);
+
+        int sonuc = q.OgrenciVideoIstatistikKaydet(Session["uye"].ToString(), dkod, dkod.Substring(0, 4), dsayisi, ysayisi);
         
         if ((sonuc==1)&&(dogru))
         {
@@ -79,6 +83,6 @@ public partial class soru : System.Web.UI.Page
         else
         { Response.Write("<script language='javascript'>alert('Beklenmeyen bir hata oluştu. Tekrar Deneyiniz...')</script>'"); }
 
-       // Response.Redirect("ogrenci_dersleri.aspx");
+       Response.Redirect("ogrenci_dersleri.aspx");
     }
 }

@@ -32,17 +32,57 @@ public class SoruCRUD
 
     public int OgrenciVideoIstatistikKaydet(string tc, string dkod, string vkod, int dsay, int ysay)
     {
-        int bayrak;
+        int bayrak,vistatistik;
         dbcrud.baglanti.Open();
-        //SqlCommand ara = new SqlCommand("select * from TblOgrenci_Video_Istatistik where O_Tc_Kimlik=tc");
+        //videoya ait istatistik
+        //eğer daha önce bu videoya ait cevap varsa
+        
+        SqlCommand ara = new SqlCommand("select count(*) from TblDers_Video_Istatistik where D_VideoKod=@a1", dbcrud.baglanti);
+        ara.Parameters.AddWithValue("@a1", dkod);
+        vistatistik = Convert.ToInt16(ara.ExecuteScalar());
 
+        if (vistatistik != 0)
+        {
+            //BURDA YANLIŞ DOĞRUYU AYIRT
+            SqlCommand guncelle = new SqlCommand("update TblDers_Video_Istatistik set DogruSay=DogruSay+1 where D_VideoKod=@a1", dbcrud.baglanti);
+            guncelle.Parameters.AddWithValue("@a1", dkod);
+            guncelle.ExecuteNonQuery();
+            dbcrud.baglanti.Close();
+        }
+        else
+        {
+            //
+            dbcrud.baglanti.Open();
+
+            SqlCommand komut2 = new SqlCommand("INSERT INTO TblDers_Video_Istatistik (D_VideoKod,DogruSay,YanlisSay) values (@pr1,@pr2,@pr3)", dbcrud.baglanti);
+        komut2.Parameters.AddWithValue("@pr1", dkod);
+        komut2.Parameters.AddWithValue("@pr2", dsay);
+        komut2.Parameters.AddWithValue("@pr3", ysay);
+        komut2.ExecuteNonQuery();
+            dbcrud.baglanti.Close();
+        }
+      
+        dbcrud.baglanti.Open();
+        //öğrenciye ait istatistik
         SqlCommand komut = new SqlCommand("INSERT INTO TblOgrenci_Video_Istatistik (O_Tc_Kimlik,D_Kodu,D_VideoKod,DogruSay,YanlisSay) values (@p1,@p2,@p3,@p4,@p5)", dbcrud.baglanti);
         komut.Parameters.AddWithValue("@p1", tc);
-        komut.Parameters.AddWithValue("@p2", dkod);
-        komut.Parameters.AddWithValue("@p3", vkod);
+        komut.Parameters.AddWithValue("@p2", vkod);
+        komut.Parameters.AddWithValue("@p3", dkod);
         komut.Parameters.AddWithValue("@p4", dsay);
         komut.Parameters.AddWithValue("@p5", ysay);       
-        bayrak = komut.ExecuteNonQuery();
+        bayrak = komut.ExecuteNonQuery();       
+        dbcrud.baglanti.Close();
+        return bayrak;
+    }
+
+    public int cevaplanmis(string tc,string vkod)
+    {
+        int bayrak;
+        dbcrud.baglanti.Open();
+        SqlCommand komut = new SqlCommand("select count(*) from TblOgrenci_Video_Istatistik where O_Tc_Kimlik=@p1 and D_VideoKod=@p2", dbcrud.baglanti);
+        komut.Parameters.AddWithValue("@p1", tc);
+        komut.Parameters.AddWithValue("@p2", vkod);
+        bayrak =Convert.ToInt16(komut.ExecuteScalar());
         dbcrud.baglanti.Close();
         return bayrak;
     }

@@ -8,9 +8,12 @@ using System.ComponentModel;
 
 public partial class izle : System.Web.UI.Page
 {
-    string vkod;
+    string vid,vkod;
+    SoruCRUD durum = new SoruCRUD();
     protected void Page_Load(object sender, EventArgs e)
     {
+        vid = Request.QueryString["vid"];
+        vkod= Request.QueryString["videokod"];
         //string vid = Request.QueryString["vid"];
         //vkod = Request.QueryString["vkod"];
         //string ders= Request.QueryString["ders"];
@@ -19,6 +22,13 @@ public partial class izle : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        Response.Redirect("videosoru.aspx?vkod="+ Session["videokod"]);
+        int bayrak;
+        vkod = Request.QueryString["videokod"];
+        vid = Request.QueryString["vid"];
+        bayrak =durum.cevaplanmis(Session["uye"].ToString(), vkod);
+        if(bayrak==0)
+        Response.Redirect("videosoru.aspx?vkod="+ vkod+"&vid="+vid);
+        else
+            Response.Redirect("ogrenci_dersleri.aspx");
     }
 }

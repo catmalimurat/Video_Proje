@@ -560,13 +560,12 @@
 										<h2 class="widget--title">Haftalar
 										</h2>
 										<ul class="widget_solutions">
-                                            <%for (int j = 0; j < videotablo.Rows.Count; j++)
-                                                {Session["videokod"] = videotablo.Rows[j]["VideoKod"];
-                                                    Session["derskod"] = videotablo.Rows[j]["D_kodu"];%>
+                                            <%for (int j = 0; j < videotablo.Rows.Count; j++){%>
+                                                   
 
                                                 Dersin Haftası: <%=videotablo.Rows[j]["D_Hafta"] %><bR />
                                            Video No:<%=videotablo.Rows[j]["VideoKod"] %><bR />
-                                            <li><a href="izle.aspx?vid=<%=videotablo.Rows[j]["D_Video"]%>"><i class="icons8-diamond"></i><span>İzle</span></a></li>
+                                            <li><a href="izle.aspx?vid=<%=videotablo.Rows[j]["D_Video"]%>&videokod=<%=videotablo.Rows[j]["VideoKod"]%>"><i class="icons8-diamond"></i><span>İzle</span></a></li>
 											
                                             
                                             <%} %>
