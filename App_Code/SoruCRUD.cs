@@ -44,9 +44,18 @@ public class SoruCRUD
         if (vistatistik != 0)
         {
             //BURDA YANLIŞ DOĞRUYU AYIRT
-            SqlCommand guncelle = new SqlCommand("update TblDers_Video_Istatistik set DogruSay=DogruSay+1 where D_VideoKod=@a1", dbcrud.baglanti);
-            guncelle.Parameters.AddWithValue("@a1", dkod);
-            guncelle.ExecuteNonQuery();
+            if (dsay==1)
+            {
+                SqlCommand guncelle = new SqlCommand("update TblDers_Video_Istatistik set DogruSay=DogruSay+1 where D_VideoKod=@a1", dbcrud.baglanti);
+            guncelle.Parameters.AddWithValue("@a1", dkod);guncelle.ExecuteNonQuery();}
+            if (ysay==1)
+            {
+SqlCommand guncelle = new SqlCommand("update TblDers_Video_Istatistik set YanlisSay=YanlisSay+1 where D_VideoKod=@a1", dbcrud.baglanti);
+                guncelle.Parameters.AddWithValue("@a1", dkod); guncelle.ExecuteNonQuery();
+            }
+            
+            
+            
             dbcrud.baglanti.Close();
         }
         else
