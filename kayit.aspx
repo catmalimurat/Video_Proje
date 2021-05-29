@@ -543,7 +543,7 @@
 																	 <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="Ad" DataValueField="Kod" CssClass="form-control">
                                                                          <asp:ListItem Selected="True">Bölüm Seçiniz</asp:ListItem>
                                                                      </asp:DropDownList>
-                                                                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:UzaktanEgitimDbConnectionString %>" SelectCommand="SELECT * FROM [TblBolumler]"></asp:SqlDataSource>
+                                                                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ProjeDbConnectionString %>" SelectCommand="SELECT * FROM [TblBolumler]" ProviderName="<%$ ConnectionStrings:ProjeDbConnectionString.ProviderName %>"></asp:SqlDataSource>
                                                                     <br />
 
 																</div>

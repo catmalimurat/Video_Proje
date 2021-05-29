@@ -12,6 +12,10 @@ public partial class izle : System.Web.UI.Page
     SoruCRUD durum = new SoruCRUD();
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["uye"]==null)
+        {
+            Response.Redirect("uyegiris.aspx");
+        }
         vid = Request.QueryString["vid"];
         vkod= Request.QueryString["videokod"];
         //string vid = Request.QueryString["vid"];

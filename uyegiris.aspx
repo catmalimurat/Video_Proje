@@ -550,6 +550,7 @@
 																		<%--<input type="email" placeholder="Email" name="email" required="">--%>
 																	</label>
 																	<%--</label>--%><br />
+                                                                     
 																</div>
                                                                   <div class="col-md-6 col-xs-12">
                                                                       <label class="field -wide">
@@ -577,6 +578,9 @@
 																		<!--<div class="contact_form--files_list"></div>-->
 																	</div>
 																</div>
+                                                                 <div class="form--footer_buttons">
+                                                                    
+                                                                     </div>
 																<div class="col-md-12 col-xs-12"><br />
 																	<div class="contact_form--submit">
                                                                         
@@ -585,7 +589,7 @@
                                                                         <asp:Button ID="Button1" runat="server" Text="Giriş" CssClass="button -menu_size -waikawa_gray -bordered" OnClick="Button1_Click" />
 																		<%--<button class="button -menu_size -waikawa_gray -bordered" type="submit">Kaydet</button>    --%> 
                                                                                                                           
-																	    <br />
+																	    <br /><br /></br> <A href="kayit.aspx">Üye olmak için,Lütfen Tıklayınız </A>
 																	</div>
 																</div>
 															</div>

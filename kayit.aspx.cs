@@ -13,26 +13,33 @@ public partial class bireysel : System.Web.UI.Page
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-     
-        if (DropDownList2.SelectedIndex>=0)
+        OgrenciCrud uyekontrol = new OgrenciCrud();
+        if (uyekontrol.uyevarmi(tctxt.Text))
         {
-            if (DropDownList3.SelectedIndex >= 0)
-            {
-
-
-                Response.Redirect("onay.aspx?adtxt=" + adtxt.Text + "&soyadtxt=" + soyadtxt.Text + "&emailtxt=" + emailtxt.Text + "&tctxt=" + tctxt.Text + "&bolum=" + DropDownList2.SelectedValue + "&sinif=" + DropDownList3.SelectedItem.Text + "&sfr="+sfrtxt.Text);
-                        //Response.Redirect("kayit.aspx?adtxt="+ adtxt.Text+"&emailtxt="+emailtxt.Text+"&teltxt="+teltxt.Text+"&cinsiyet="+cinsiyet+"&kurs="+DropDownList3.SelectedValue + "&onay="+onayli+"&isdurumu="+isdurumu+"&sehir="+ DropDownList1.SelectedValue+"&ozeltxt="+ozeltxt.Text);                          
-
-
-            }
-            else
-            {
-                Response.Write("<script>alert('Sınıf Seçimi yapmalısınız')</script>");
-            }
+            Response.Write("<script>alert('Bu T.C. Kimlik No ile sistem kayıtlı öğrenci bulunmaktadır. Lütfen Sistem yöntecisi ile iletişime geçiniz.')</script>");
         }
         else
         {
-            Response.Write("<script>alert('Bölüm Seçmelisiniz')</script>");
+            if (DropDownList2.SelectedIndex >= 0)
+            {
+                if (DropDownList3.SelectedIndex >= 0)
+                {
+
+
+                    Response.Redirect("onay.aspx?adtxt=" + adtxt.Text + "&soyadtxt=" + soyadtxt.Text + "&emailtxt=" + emailtxt.Text + "&tctxt=" + tctxt.Text + "&bolum=" + DropDownList2.SelectedValue + "&sinif=" + DropDownList3.SelectedItem.Text + "&sfr=" + sfrtxt.Text);
+                    //Response.Redirect("kayit.aspx?adtxt="+ adtxt.Text+"&emailtxt="+emailtxt.Text+"&teltxt="+teltxt.Text+"&cinsiyet="+cinsiyet+"&kurs="+DropDownList3.SelectedValue + "&onay="+onayli+"&isdurumu="+isdurumu+"&sehir="+ DropDownList1.SelectedValue+"&ozeltxt="+ozeltxt.Text);                          
+
+
+                }
+                else
+                {
+                    Response.Write("<script>alert('Sınıf Seçimi yapmalısınız')</script>");
+                }
+            }
+            else
+            {
+                Response.Write("<script>alert('Bölüm Seçmelisiniz')</script>");
+            }
         }
     }
 }

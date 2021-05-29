@@ -12,7 +12,7 @@
         <button onclick="myFunction()" type="button">Bir sonraki dersi izlemek için dersin tamamını izlemeli, ders sonu sorularını cevaplamalısınız!</button><br>
         
         <%string vid = Request.QueryString["vid"]; %>
-          <video id="myVideo" width="320" height="240" controls>
+          <video id="myVideo" width="90%" height="90%" controls>
         <source src="<%=vid%>" type="video/mp4">
     
         Your browser does not support the video tag.

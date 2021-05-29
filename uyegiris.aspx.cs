@@ -14,6 +14,13 @@ public partial class uyegiris : System.Web.UI.Page
         {
             Label1.Text = "Hatalı veri girişi";
         }
+        string kapat = Request.QueryString["kapat"];
+        if (Convert.ToByte(kapat)==1)
+        {
+            Session.Abandon();
+            Session.RemoveAll();
+            Response.Redirect("uyegiris.aspx");
+        }
     }
 
     protected void Button1_Click(object sender, EventArgs e)

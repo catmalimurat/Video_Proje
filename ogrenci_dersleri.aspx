@@ -109,6 +109,8 @@
 												</div>
 											</div>
 										</div>
+                                     
+                                       <a href="uyegiris.aspx?kapat=1">Oturumu Kapat</a> 
 										<!--<a href="contact_us.html"><button class="button -waikawa_gray -bordered -menu_size"><span class="button--inner">Get a Quote</span></button></a>-->
 									</div>
 								</div>
@@ -534,9 +536,7 @@
 								<form id="bk" runat="server" method="POST">
                                     <div class="col-md-9 col-md-offset-0 col-xs-10 col-xs-offset-1">
 										<h3 class="careers--subtitle">
-                                            <asp:GridView ID="GridView1" runat="server">
-                                            </asp:GridView>
-                                            Dersler</h3>
+                                            <%=Session["uye"]%> Kullanıcısının Dersleri:</h3>
 										<div class="careers--vacancies">
 											<div class="vacancies js-accordion">
                                                 <% @Import Namespace = "System.Data"%>
@@ -548,29 +548,24 @@
                                                 <%for (int i = 0; i < derstablo.Rows.Count; i++)
                                                     {%>
                                                         <div class="vacancies--item js-accordion--pane">
-													<h4 class="vacancies--item_title js-accordion--pane_opener"><%=derstablo.Rows[i]["D_adi"] %></h4>
+													<h4 class="vacancies--item_title js-accordion--pane_opener">DERS: <%=derstablo.Rows[i]["D_adi"] %></h4>
 													<div class="vacancies--item_content js-accordion--pane_content">
-														<h5><%=derstablo.Rows[i]["D_Kodu"] %></h5>
-														<%DataTable videotablo = videocrud.videolar(derstablo.Rows[i]["D_Kodu"].ToString()); %>
-                                                       
-
-
-                                                        <div class="service_sidebar">
-									<div class="widget -iconless">
-										<h2 class="widget--title">Haftalar
-										</h2>
-										<ul class="widget_solutions">
-                                            <%for (int j = 0; j < videotablo.Rows.Count; j++){%>
-                                                   
-
-                                                Dersin Haftası: <%=videotablo.Rows[j]["D_Hafta"] %><bR />
-                                           Video No:<%=videotablo.Rows[j]["VideoKod"] %><bR />
-                                            <li><a href="izle.aspx?vid=<%=videotablo.Rows[j]["D_Video"]%>&videokod=<%=videotablo.Rows[j]["VideoKod"]%>"><i class="icons8-diamond"></i><span>İzle</span></a></li>
-											
+														<h5>DERS KODU:<%=derstablo.Rows[i]["D_Kodu"] %></h5>
+														<%DataTable videotablo = videocrud.videolar(derstablo.Rows[i]["D_Kodu"].ToString()); %>     
+                                                        
+                                    <div class="service_sidebar">
+									<div class="widget -iconless">						
+																			
+                                        <ul class="widget_solutions">
                                             
-                                            <%} %>
-											
+                                            <%for (int j = 0; j < videotablo.Rows.Count; j++){%>
+                                            <h2 class="vacancies--item_title js-accordion--pane_opener">Haftalık Program</h2>                                  <li> Dersin Haftası: <%=videotablo.Rows[j]["D_Hafta"] %></li >
+                                           <li>Video No:<%=videotablo.Rows[j]["VideoKod"] %></li >
+                                            <li><a href="izle.aspx?vid=<%=videotablo.Rows[j]["D_Video"]%>&videokod=<%=videotablo.Rows[j]["VideoKod"]%>"><i class="service_item--icon icons8-training"></i><span>Derse Git</span></a></li>											
+                                            
+                                            <%} %>											
 										</ul>
+
 									</div>
                                                             </div>
 

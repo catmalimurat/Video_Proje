@@ -32,11 +32,12 @@ public partial class kayit : System.Web.UI.Page
         ogrenci.sfr = sfr;
         ogrenci.bolum = bolum;
         ogrenci.sinif = sinif;
-        /*
+        
         if (ogrencicrud.OgrenciKayit(ogrenci)==1)
-        sonuc.InnerHtml = "Uzaktan Eğitim Sistemine Kaydınız Yapılmıştır.";
+        sonuc.InnerHtml = "Uzaktan Eğitim Sistemine Kaydınız Yapılmıştır.</br>Üye Girişi Yapmak İçin Lütfen <a href='uyegiris.aspx'>Tıklayınız</a>";
+
         else
-         sonuc.InnerHtml = "Uzaktan Eğitim Sistemine Kaydınız Yapılamıştır!!!"; */
+         sonuc.InnerHtml = "Uzaktan Eğitim Sistemine Kaydınız Yapılamıştır!!!"; 
        
         
 

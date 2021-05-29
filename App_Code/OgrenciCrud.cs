@@ -32,6 +32,22 @@ public class OgrenciCrud
         dbcrud.baglanti.Close();
         return bayrak;
     }
+    public bool uyevarmi(string gtc)
+    {
+        dbcrud.baglanti.Open();
+        SqlCommand komut = new SqlCommand("Select Count( O_Tc_Kimlik) from TblOgrenciler Where O_Tc_Kimlik=@p1 ", dbcrud.baglanti);
+        komut.Parameters.AddWithValue("@p1", gtc);
+        
+        int ks = Convert.ToInt16(komut.ExecuteScalar());
+        if (ks > 0)
+        {
+            return true;
+        }
+        dbcrud.baglanti.Close();
+        return false;
+
+    }
+
     public bool uyemi(string gtc,string sfr)
     {
         dbcrud.baglanti.Open();
