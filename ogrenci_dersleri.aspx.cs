@@ -15,10 +15,10 @@ public partial class ogreci_dersleri : System.Web.UI.Page
             Response.Redirect("uyegiris.aspx");
         }
         DersCrud derscrud = new DersCrud();
-        
+
         //DataTable derstablo = derscrud.dersler(Session["uye"].ToString());
         //GridView1.DataSource = derstablo;
-        //     GridView1.DataBind();
+        //GridView1.DataBind();
     }
 
     protected void Button1_Click(object sender, EventArgs e)
