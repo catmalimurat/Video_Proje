@@ -15,6 +15,11 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
 
     <style type="text/css">
+        div[disabled]
+{
+  pointer-events: none;
+  opacity: 0.7;
+}
         .auto-style1 {
             font-size: 30px;
             color: #fff;
@@ -535,8 +540,10 @@
 						<div class="section--header">						
 								<form id="bk" runat="server" method="POST">
                                     <div class="col-md-9 col-md-offset-0 col-xs-10 col-xs-offset-1">
-										<h3 class="careers--subtitle">
+										 İzlendi: <img alt="" src="img/kamerat.png" height="20px" width="20px" /></li>
+                                        İzlenmedi: <img alt="" src="img/kamera.png" height="20px" width="20px" /></li><h3 class="careers--subtitle">
                                             <%=Session["uye"]%> Kullanıcısının Dersleri:</h3>
+                                       
 										<div class="careers--vacancies">
 											<div class="vacancies js-accordion">
                                                 <% @Import Namespace = "System.Data"%>
@@ -553,20 +560,42 @@
 														<h5>DERS KODU:<%=derstablo.Rows[i]["D_Kodu"] %></h5>
 														<%DataTable videotablo = videocrud.videolar(derstablo.Rows[i]["D_Kodu"].ToString()); %>     
                                                         
-                                    <div class="service_sidebar">
-									<div class="widget -iconless">						
+                                    <div class="service_sidebar" >
+									<%for (int j = 0; j < videotablo.Rows.Count; j++){%>
+                                        
+                                        <div class="widget -iconless">						
 																			
-                                        <ul class="widget_solutions">
+                                        <ul class="widget_solutions">                                           
                                             
-                                            <%for (int j = 0; j < videotablo.Rows.Count; j++){%>
-                                            <h2 class="vacancies--item_title js-accordion--pane_opener">Haftalık Program</h2>                                  <li> Dersin Haftası: <%=videotablo.Rows[j]["D_Hafta"] %></li >
-                                           <li>Video No:<%=videotablo.Rows[j]["VideoKod"] %></li >
-                                            <li><a href="izle.aspx?vid=<%=videotablo.Rows[j]["D_Video"]%>&videokod=<%=videotablo.Rows[j]["VideoKod"]%>"><i class="service_item--icon icons8-training"></i><span>Derse Git</span></a></li>											
+                                            <h2 class="vacancies--item_title js-accordion--pane_opener"> Dersin Haftası: <%=videotablo.Rows[j]["D_Hafta"] %></h2>      
+                                            <li></li >
+                                            <%bool izlendi = true;
+                                                izlendi = videocrud.izlendimi(Session["uye"].ToString(), videotablo.Rows[j]["VideoKod"].ToString());                             
+                                                bool izlendio=true;
+                                                if (j != 0) {
+                                                    izlendio = videocrud.izlendimi(Session["uye"].ToString(), videotablo.Rows[j-1]["VideoKod"].ToString());}
+                                                if (izlendio == false)
+                                                {
+                                                    %> <div disabled>}<%
+                                                                         }
+                                                                         else if ((izlendio == true) || (j == 0))
+                                                                         {%><div><%} %>                
+                                            <%if (izlendi == true)
+                                                { %>
+                                            <li><a href="izle.aspx?vid=<%=videotablo.Rows[j]["D_Video"]%>&videokod=<%=videotablo.Rows[j]["VideoKod"]%>">İzlenme Durumu:<img alt="" src="img/kamerat.png" height="50px" width="50px" /></a></li>
+                                                                             <%}
+                                                                      else
+                                                                      {%>
+                                                                             <li><a href="izle.aspx?vid=<%=videotablo.Rows[j]["D_Video"]%>&videokod=<%=videotablo.Rows[j]["VideoKod"]%>">İzlenme Durumu :<img alt="" src="img/kamera.png" height="50px" width="50px" /></a></li>
+                                                                             <%} %>
                                             
-                                            <%} %>											
+                                           <%--<li>Video No:<%=videotablo.Rows[j]["VideoKod"] %></li >--%>
+                                            <li><a href="izle.aspx?vid=<%=videotablo.Rows[j]["D_Video"]%>&videokod=<%=videotablo.Rows[j]["VideoKod"]%>"><i class="service_item--icon icons8-training"></i><span>Derse Videosu izle</span></a></li>											
+                                            </div>
+                                           										
 										</ul>
 
-									</div>
+									</div> <%} %>	
                                                             </div>
 
 

@@ -61,6 +61,7 @@ SqlCommand guncelle = new SqlCommand("update TblDers_Video_Istatistik set Yanlis
         else
         {
             //
+            dbcrud.baglanti.Close();
             dbcrud.baglanti.Open();
 
             SqlCommand komut2 = new SqlCommand("INSERT INTO TblDers_Video_Istatistik (D_VideoKod,DogruSay,YanlisSay) values (@pr1,@pr2,@pr3)", dbcrud.baglanti);

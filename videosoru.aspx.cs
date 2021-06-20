@@ -74,15 +74,32 @@ public partial class soru : System.Web.UI.Page
         
         if ((sonuc==1)&&(dogru))
         {
-            Response.Write("<script language='javascript'>alert('Cevabınız doğru.Sisteme kaydedildi...')</script>'");
+            string message = "Cevabınız doğru.Sisteme kaydedildi...";
+            string url = "ogrenci_dersleri.aspx";
+            string script = "window.onload = function(){ alert('";
+            script += message;
+            script += "');";
+            script += "window.location = '";
+            script += url;
+            script += "'; }";
+            ClientScript.RegisterStartupScript(this.GetType(), "Redirect", script, true);
         }
         else if ((sonuc == 1) && (!dogru))
         {
-            Response.Write("<script language='javascript'>alert('Cevabınız yanlış.Sisteme kaydedildi...')</script>'");
+            string message = "Cevabınız yanlış.Sisteme kaydedildi...";
+            string url = "ogrenci_dersleri.aspx";
+            string script = "window.onload = function(){ alert('";
+            script += message;
+            script += "');";
+            script += "window.location = '";
+            script += url;
+            script += "'; }";
+            ClientScript.RegisterStartupScript(this.GetType(), "Redirect", script, true);
+            //Response.Write("<script language='javascript'>alert('Cevabınız yanlış.Sisteme kaydedildi...')</script>'");
         }
         else
         { Response.Write("<script language='javascript'>alert('Beklenmeyen bir hata oluştu. Tekrar Deneyiniz...')</script>'"); }
 
-       Response.Redirect("ogrenci_dersleri.aspx");
+       //Response.Redirect("ogrenci_dersleri.aspx");
     }
 }

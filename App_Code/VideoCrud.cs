@@ -34,4 +34,20 @@ public class VideoCrud
         dbcrud.baglanti.Close();
         return dt;
     }
+
+    public bool izlendimi(string tc, string vkod)
+    {
+        dbcrud.baglanti.Open();
+        SqlCommand komut = new SqlCommand("SELECT count(*) FROM TblOgrenci_Video_Istatistik WHERE O_Tc_Kimlik=@p1 and D_VideoKod=@p2", dbcrud.baglanti);
+        komut.Parameters.AddWithValue("@p1", tc);
+        komut.Parameters.AddWithValue("@p2", vkod);
+
+        int sonuc=Convert.ToByte(komut.ExecuteScalar());
+        dbcrud.baglanti.Close();
+        if (sonuc==0)
+        {
+            return false;
+        }
+        return true;
+    }
 }

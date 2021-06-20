@@ -589,7 +589,7 @@
                                                                         <asp:Button ID="Button1" runat="server" Text="Giriş" CssClass="button -menu_size -waikawa_gray -bordered" OnClick="Button1_Click" />
 																		<%--<button class="button -menu_size -waikawa_gray -bordered" type="submit">Kaydet</button>    --%> 
                                                                                                                           
-																	    <br /><br /></br> <A href="kayit.aspx">Üye olmak için,Lütfen Tıklayınız </A>
+																	    <br /><br /></br> <A href="kayit.aspx" style="color:crimson">Üye olmak için Lütfen Tıklayınız </A>
 																	</div>
 																</div>
 															</div>

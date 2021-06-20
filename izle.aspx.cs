@@ -47,4 +47,9 @@ public partial class izle : System.Web.UI.Page
         else
             Response.Redirect("ogrenci_dersleri.aspx");
     }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ogrenci_dersleri.aspx");
+    }
 }
