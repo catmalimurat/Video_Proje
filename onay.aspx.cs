@@ -10,6 +10,7 @@ public partial class kayit : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        //son test yapıldı
 
         string ad = Request.QueryString["adtxt"];
         string soyad = Request.QueryString["soyadtxt"];
