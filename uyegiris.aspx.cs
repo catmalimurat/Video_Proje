@@ -9,6 +9,7 @@ public partial class uyegiris : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        //test işlemi yapıldı
         string hata = Request.QueryString["hata"];
         if (hata=="1")
         {
