@@ -13,6 +13,7 @@ public partial class bireysel : System.Web.UI.Page
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
+        //test yapıldı
         OgrenciCrud uyekontrol = new OgrenciCrud();
         if (uyekontrol.uyevarmi(tctxt.Text))
         {
