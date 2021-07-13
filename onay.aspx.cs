@@ -11,7 +11,7 @@ public partial class kayit : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         //son test yapıldı
-
+        //BURADA ÖĞRENCİ KAYIT EKRANINDA GİRİLEN BİLGİLER ALNIYOR
         string ad = Request.QueryString["adtxt"];
         string soyad = Request.QueryString["soyadtxt"];
         string email = Request.QueryString["emailtxt"];
@@ -21,11 +21,11 @@ public partial class kayit : System.Web.UI.Page
         string sinif = Request.QueryString["sinif"];
              
 
-        string tarih = System.DateTime.Now.ToShortTimeString();
+        
         DbCrud dbcrud = new DbCrud();
         Ogrenci ogrenci = new Ogrenci();
         OgrenciCrud ogrencicrud = new OgrenciCrud();
-
+        //BURADA ÖĞRENCİ BİLGİLERİ Ogrenci SINIFINDAN TÜRETİLEN ogrenci NESNESİNE AKTARILIYOR
         ogrenci.ad = ad;
         ogrenci.soyad = soyad;
         ogrenci.email = email;
@@ -34,6 +34,7 @@ public partial class kayit : System.Web.UI.Page
         ogrenci.bolum = bolum;
         ogrenci.sinif = sinif;
         
+        //OgrenciCRUD SINIFI İÇERİSİNDE TANIMLANAN OgrenciKayit METODUYLA BİLGİLER VERİTABANINA KAYDEDİLİYOR.
         if (ogrencicrud.OgrenciKayit(ogrenci)==1)
         sonuc.InnerHtml = "Uzaktan Eğitim Sistemine Kaydınız Yapılmıştır.</br>Üye Girişi Yapmak İçin Lütfen <a href='uyegiris.aspx'>Tıklayınız</a>";
 
@@ -47,6 +48,3 @@ public partial class kayit : System.Web.UI.Page
 	}
 }
 
-public class DbCRUD
-{
-}
